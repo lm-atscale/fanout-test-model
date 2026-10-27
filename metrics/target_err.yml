@@ -1,0 +1,7 @@
+unique_name: target_err
+object_type: metric
+label: Target Amount (error)
+calculation_method: sum
+dataset: qds_target
+column: target_amount
+unrelated_dimensions_handling: error

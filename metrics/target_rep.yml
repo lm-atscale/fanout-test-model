@@ -1,0 +1,7 @@
+unique_name: target_rep
+object_type: metric
+label: Target Amount (repeat)
+calculation_method: sum
+dataset: qds_target
+column: target_amount
+unrelated_dimensions_handling: repeat

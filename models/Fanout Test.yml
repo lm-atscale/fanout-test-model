@@ -5,6 +5,9 @@ metrics:
   - unique_name: sales_amount
   - unique_name: order_qty
   - unique_name: target_amount
+  - unique_name: target_err
+  - unique_name: target_empty
+  - unique_name: target_rep
   - unique_name: return_amount
   - unique_name: order_tax
   - unique_name: order_total_sum
