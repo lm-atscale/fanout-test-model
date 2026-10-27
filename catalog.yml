@@ -1,6 +1,6 @@
 version: 1.5
-unique_name: fanout_test_loc
+unique_name: fanout_test_loc2
 object_type: catalog
-label: fanout_test_loc
+label: fanout_test_loc2
 aggressive_agg_promotion: false
-build_speculative_aggs: true
+build_speculative_aggs: false
