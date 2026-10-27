@@ -1,0 +1,20 @@
+unique_name: qds_sales_denorm
+object_type: dataset
+label: qds_sales_denorm
+description: Order lines with the order total repeated on every line (a header amount denormalised onto the lines).
+connection_id: con_fanout
+columns:
+  - name: customerkey
+    data_type: "decimal(38,0)"
+  - name: productkey
+    data_type: "decimal(38,0)"
+  - name: salesordernumber
+    data_type: string
+  - name: salesorderlinenumber
+    data_type: "decimal(38,0)"
+  - name: order_total
+    data_type: double
+sql: |-
+  SELECT "customerkey", "productkey", "salesordernumber", "salesorderlinenumber",
+         SUM("salesamount") OVER (PARTITION BY "salesordernumber") AS "order_total"
+  FROM SE_DEMO_LIBRARY.AS_ADVENTURE_SE_DEMO2.FACTINTERNETSALES

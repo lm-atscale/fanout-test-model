@@ -1,0 +1,6 @@
+unique_name: target_amount
+object_type: metric
+label: Target Amount
+calculation_method: sum
+dataset: qds_target
+column: target_amount

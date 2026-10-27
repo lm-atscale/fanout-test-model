@@ -1,0 +1,30 @@
+unique_name: Product
+object_type: dimension
+label: Product
+type: standard
+hierarchies:
+  - unique_name: Product Hierarchy
+    label: Product Hierarchy
+    levels:
+      - unique_name: Product Line
+      - unique_name: Product Name
+        metrics:
+          - unique_name: List Price
+            label: List Price
+            calculation_method: sum
+            dataset: dim_product
+            column: listprice
+level_attributes:
+  - unique_name: Product Line
+    label: Product Line
+    dataset: dim_product
+    name_column: productline
+    key_columns:
+      - productline
+  - unique_name: Product Name
+    label: Product Name
+    dataset: dim_product
+    is_unique_key: true
+    name_column: englishproductname
+    key_columns:
+      - productkey

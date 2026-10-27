@@ -1,0 +1,20 @@
+unique_name: qds_returns
+object_type: dataset
+label: qds_returns
+description: Second many-row fact at order line grain (every even order line treated as returned at 10 percent).
+connection_id: con_fanout
+columns:
+  - name: customerkey
+    data_type: "decimal(38,0)"
+  - name: productkey
+    data_type: "decimal(38,0)"
+  - name: salesordernumber
+    data_type: string
+  - name: salesorderlinenumber
+    data_type: "decimal(38,0)"
+  - name: return_amount
+    data_type: double
+sql: |-
+  SELECT "customerkey", "productkey", "salesordernumber", "salesorderlinenumber", "salesamount" * 0.1 AS "return_amount"
+  FROM SE_DEMO_LIBRARY.AS_ADVENTURE_SE_DEMO2.FACTINTERNETSALES
+  WHERE MOD("salesorderlinenumber", 2) = 0

@@ -1,0 +1,6 @@
+unique_name: return_amount
+object_type: metric
+label: Return Amount
+calculation_method: sum
+dataset: qds_returns
+column: return_amount

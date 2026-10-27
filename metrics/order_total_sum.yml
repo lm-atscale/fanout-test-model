@@ -1,0 +1,6 @@
+unique_name: order_total_sum
+object_type: metric
+label: Order Total (denormalised)
+calculation_method: sum
+dataset: qds_sales_denorm
+column: order_total

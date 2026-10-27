@@ -1,0 +1,18 @@
+unique_name: fact_sales
+object_type: dataset
+label: fact_sales
+connection_id: con_fanout
+table: FACTINTERNETSALES
+columns:
+  - name: customerkey
+    data_type: "decimal(38,0)"
+  - name: productkey
+    data_type: "decimal(38,0)"
+  - name: salesamount
+    data_type: double
+  - name: orderquantity
+    data_type: "decimal(38,0)"
+  - name: salesordernumber
+    data_type: string
+  - name: salesorderlinenumber
+    data_type: "decimal(38,0)"

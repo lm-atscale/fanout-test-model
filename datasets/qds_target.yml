@@ -1,0 +1,14 @@
+unique_name: qds_target
+object_type: dataset
+label: qds_target
+description: Second fact at product grain, derived from the sales fact (target = 1.1 x sales).
+connection_id: con_fanout
+columns:
+  - name: productkey
+    data_type: "decimal(38,0)"
+  - name: target_amount
+    data_type: double
+sql: |-
+  SELECT "productkey", SUM("salesamount") * 1.1 AS "target_amount"
+  FROM SE_DEMO_LIBRARY.AS_ADVENTURE_SE_DEMO2.FACTINTERNETSALES
+  GROUP BY "productkey"

@@ -1,0 +1,6 @@
+unique_name: order_qty
+object_type: metric
+label: Order Qty
+calculation_method: sum
+dataset: fact_sales
+column: orderquantity

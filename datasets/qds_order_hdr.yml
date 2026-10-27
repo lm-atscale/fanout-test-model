@@ -1,0 +1,16 @@
+unique_name: qds_order_hdr
+object_type: dataset
+label: qds_order_hdr
+description: Order header grain fact (one row per order).
+connection_id: con_fanout
+columns:
+  - name: salesordernumber
+    data_type: string
+  - name: customerkey
+    data_type: "decimal(38,0)"
+  - name: order_tax
+    data_type: double
+sql: |-
+  SELECT "salesordernumber", MAX("customerkey") AS "customerkey", SUM("taxamt") AS "order_tax"
+  FROM SE_DEMO_LIBRARY.AS_ADVENTURE_SE_DEMO2.FACTINTERNETSALES
+  GROUP BY "salesordernumber"

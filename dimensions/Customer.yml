@@ -1,0 +1,24 @@
+unique_name: Customer
+object_type: dimension
+label: Customer
+type: standard
+hierarchies:
+  - unique_name: Customer Hierarchy
+    label: Customer Hierarchy
+    levels:
+      - unique_name: Occupation
+      - unique_name: Customer Name
+level_attributes:
+  - unique_name: Occupation
+    label: Occupation
+    dataset: dim_customer
+    name_column: occupation
+    key_columns:
+      - occupation
+  - unique_name: Customer Name
+    label: Customer Name
+    dataset: dim_customer
+    is_unique_key: true
+    name_column: fullname
+    key_columns:
+      - customerkey

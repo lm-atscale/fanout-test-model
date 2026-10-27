@@ -1,0 +1,12 @@
+unique_name: dim_customer
+object_type: dataset
+label: dim_customer
+connection_id: con_fanout
+table: DIMCUSTOMER
+columns:
+  - name: customerkey
+    data_type: "decimal(38,0)"
+  - name: fullname
+    data_type: string
+  - name: occupation
+    data_type: string

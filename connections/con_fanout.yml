@@ -1,0 +1,6 @@
+unique_name: con_fanout
+object_type: connection
+label: con_fanout
+as_connection: Snowflake Partner
+database: SE_DEMO_LIBRARY
+schema: AS_ADVENTURE_SE_DEMO2

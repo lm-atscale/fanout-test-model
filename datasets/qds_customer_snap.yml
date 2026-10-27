@@ -1,0 +1,20 @@
+unique_name: qds_customer_snap
+object_type: dataset
+label: qds_customer_snap
+description: Customer snapshot dimension, three rows per customer (snapmonth 1 to 3, occupation changes after month 1), like the Rabobank PO8 snapshot.
+connection_id: con_fanout
+columns:
+  - name: customerkey
+    data_type: "decimal(38,0)"
+  - name: fullname
+    data_type: string
+  - name: occupation
+    data_type: string
+  - name: snapmonth
+    data_type: int
+  - name: snapocc
+    data_type: string
+sql: |-
+  SELECT c."customerkey", c."fullname", c."occupation", m.mth AS "snapmonth", CASE WHEN m.mth = 1 THEN c."occupation" ELSE 'Changed' END AS "snapocc"
+  FROM SE_DEMO_LIBRARY.AS_ADVENTURE_SE_DEMO2.DIMCUSTOMER c
+  CROSS JOIN (SELECT 1 AS mth UNION ALL SELECT 2 UNION ALL SELECT 3) m

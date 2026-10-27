@@ -1,0 +1,6 @@
+unique_name: order_tax
+object_type: metric
+label: Order Tax
+calculation_method: sum
+dataset: qds_order_hdr
+column: order_tax

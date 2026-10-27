@@ -1,0 +1,92 @@
+unique_name: Fanout Test
+object_type: model
+label: Fanout Test
+metrics:
+  - unique_name: sales_amount
+  - unique_name: order_qty
+  - unique_name: target_amount
+  - unique_name: return_amount
+  - unique_name: order_tax
+  - unique_name: order_total_sum
+relationships:
+  - unique_name: fact_sales_Product
+    from:
+      dataset: fact_sales
+      join_columns:
+        - productkey
+    to:
+      dimension: Product
+      level: Product Name
+  - unique_name: fact_sales_ProductDup
+    from:
+      dataset: fact_sales
+      join_columns:
+        - productkey
+    to:
+      dimension: Product Dup
+      level: Dup Product Name
+  - unique_name: fact_sales_Customer
+    from:
+      dataset: fact_sales
+      join_columns:
+        - customerkey
+    to:
+      dimension: Customer
+      level: Customer Name
+  - unique_name: fact_sales_CustomerSnap
+    from:
+      dataset: fact_sales
+      join_columns:
+        - customerkey
+    to:
+      dimension: Customer Snap
+      level: Snap Customer
+  - unique_name: target_Product
+    from:
+      dataset: qds_target
+      join_columns:
+        - productkey
+    to:
+      dimension: Product
+      level: Product Name
+  - unique_name: returns_Product
+    from:
+      dataset: qds_returns
+      join_columns:
+        - productkey
+    to:
+      dimension: Product
+      level: Product Name
+  - unique_name: returns_Customer
+    from:
+      dataset: qds_returns
+      join_columns:
+        - customerkey
+    to:
+      dimension: Customer
+      level: Customer Name
+  - unique_name: hdr_Customer
+    from:
+      dataset: qds_order_hdr
+      join_columns:
+        - customerkey
+    to:
+      dimension: Customer
+      level: Customer Name
+  - unique_name: denorm_Product
+    from:
+      dataset: qds_sales_denorm
+      join_columns:
+        - productkey
+    to:
+      dimension: Product
+      level: Product Name
+  - unique_name: denorm_Customer
+    from:
+      dataset: qds_sales_denorm
+      join_columns:
+        - customerkey
+    to:
+      dimension: Customer
+      level: Customer Name
+visible: true

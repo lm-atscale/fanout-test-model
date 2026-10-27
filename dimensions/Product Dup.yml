@@ -1,0 +1,24 @@
+unique_name: Product Dup
+object_type: dimension
+label: Product Dup
+type: standard
+hierarchies:
+  - unique_name: Product Dup Hierarchy
+    label: Product Dup Hierarchy
+    levels:
+      - unique_name: Dup Product Line
+      - unique_name: Dup Product Name
+level_attributes:
+  - unique_name: Dup Product Line
+    label: Dup Product Line
+    dataset: qds_product_dup
+    name_column: productline
+    key_columns:
+      - productline
+  - unique_name: Dup Product Name
+    label: Dup Product Name
+    dataset: qds_product_dup
+    is_unique_key: true
+    name_column: englishproductname
+    key_columns:
+      - productkey

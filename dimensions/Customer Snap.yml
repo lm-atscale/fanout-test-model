@@ -1,0 +1,31 @@
+unique_name: Customer Snap
+object_type: dimension
+label: Customer Snap
+type: standard
+hierarchies:
+  - unique_name: Customer Snap Hierarchy
+    label: Customer Snap Hierarchy
+    levels:
+      - unique_name: Snap Occupation
+      - unique_name: Snap Customer
+        secondary_attributes:
+          - unique_name: Snap Month
+            label: Snap Month
+            dataset: qds_customer_snap
+            key_columns:
+              - snapmonth
+            name_column: snapmonth
+level_attributes:
+  - unique_name: Snap Occupation
+    label: Snap Occupation
+    dataset: qds_customer_snap
+    name_column: snapocc
+    key_columns:
+      - snapocc
+  - unique_name: Snap Customer
+    label: Snap Customer
+    dataset: qds_customer_snap
+    is_unique_key: false
+    name_column: fullname
+    key_columns:
+      - customerkey

@@ -1,0 +1,16 @@
+unique_name: qds_product_dup
+object_type: dataset
+label: qds_product_dup
+description: Product dimension with every product whose key is a multiple of 10 repeated with a different product line, like a slowly changing history row (a non-unique key declared unique).
+connection_id: con_fanout
+columns:
+  - name: productkey
+    data_type: int
+  - name: englishproductname
+    data_type: string
+  - name: productline
+    data_type: string
+sql: |-
+  SELECT "productkey", "englishproductname", "productline" FROM SE_DEMO_LIBRARY.AS_ADVENTURE_SE_DEMO2.DIMPRODUCT
+  UNION ALL
+  SELECT "productkey", "englishproductname", "productline" || '~v2' AS "productline" FROM SE_DEMO_LIBRARY.AS_ADVENTURE_SE_DEMO2.DIMPRODUCT WHERE MOD("productkey", 10) = 0
